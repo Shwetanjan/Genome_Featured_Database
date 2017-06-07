@@ -1,0 +1,12 @@
+ANNOVAR Version:
+	$Date: 2016-02-01 00:11:04 -0800 (Mon,  1 Feb 2016) $
+ANNOVAR Information:
+	For questions, comments, documentation, bug reports and program update, please visit http://www.openbioinformatics.org/annovar/
+ANNOVAR Command:
+	/home/d/danfldhs/sanjan/igp_share/tools/annovar/annotate_variation.pl -buildver hg19 -downdb -webfrom annovar 1000g2015aug .
+ANNOVAR Started:
+	Fri Mar 10 13:13:23 2017
+NOTICE: Web-based checking to see whether ANNOVAR new version is available ... Done
+NOTICE: Downloading annotation database http://www.openbioinformatics.org/annovar/download/hg19_1000g2015aug.zip ... OK
+NOTICE: Uncompressing downloaded files
+NOTICE: Finished downloading annotation files for hg19 build version, with files saved at the '.' directory
