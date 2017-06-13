@@ -16,11 +16,16 @@ import  java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class create_table_disgenet {
 
         public static Connection conn = null;
-
+        public static String file = "/Users/mkyong/csv/country.csv";
+        public static String line = "";
+        public static String splitBy = " ";
 
         public static void initConnection() {
 
@@ -55,9 +60,65 @@ public class create_table_disgenet {
             }
         }
 
+
+
+
+    public void insert_table()
+
+    {
+
+        String query = " insert into users (id, rsID, geneID, gene_Symbol, diseaseID_umls,chr)"
+                + " values (?, ?, ?, ?, ?)";
+
+        BufferedReader br = null;
+
+        try {
+
+            br = new BufferedReader(new FileReader(file));
+
+            while ((line = br.readLine()) != null) {
+
+                if (line.startsWith("rs")) {
+
+                    // use tab as separator
+                    String[] disgentArray = line.split(splitBy);
+                    
+
+                    // create the mysql insert preparedstatement
+                    PreparedStatement preparedStmt = conn.prepareStatement(query);
+                    preparedStmt.setInt(1, "");
+                    preparedStmt.setString(2, "");
+                    preparedStmt.setString(3, );
+                    preparedStmt.setString(4, );
+                    preparedStmt.setString(5, );
+                    preparedStmt.setInt(6, 5000);
+
+                    // execute the preparedstatement
+                    preparedStmt.execute();
+
+                }
+            }
+
+        } catch (Exception e) {
+            System.err.println("Got an exception!");
+            System.err.println(e.getMessage());
+        } finally {
+            if (br != null) {
+                try {
+                    br.close();
+                    conn.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }
+    }
+
+
+
         public static void main(String[] args) {
             initConnection();
         }
     }
-
 
